@@ -5,7 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * Hello world!
+ * This class will initiate spring boot to configure beans required &
+ * work with spring mvc modules (from pom) to create microservices. 
  *
  */
 
