@@ -14,9 +14,15 @@ public  class Alert extends BaseEntity{
 	@Property("alertType")
 	private String alertType;
 	
+	/**
+	 *@todo - transient fields are getting generated in db - unknown issue
+	 */
 	@Transient
 	private Metric metrics;
 
+	/**
+	 *@todo - transient fields are getting generated in db - unknown issue
+	 */
 	@Transient
 	private float baseWeight;
 	

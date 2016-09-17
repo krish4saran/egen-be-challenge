@@ -9,7 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import com.egenchallenge.emulator.domain.Alert;
 
-/**
+/**This {@link Repository} is used for CRUD operations related to {@link Alert} document 
+ * against alerts collection
  * @author saranjithkrishnan
  *
  */
@@ -23,10 +24,18 @@ public class AlertDAORepository extends BasicDAO<Alert, String>{
 		super(ds);
 	}
 
+	/**List all {@link Alert} records (documents) available in the alerts collections
+	 * @return
+	 */
 	public List<Alert> findAll() {
 	    return dataStore.find(Alert.class).asList();
 	}
 
+	/**List all {@link Alert} records (documents) avaialable between two timestamps
+	 * @param from
+	 * @param to
+	 * @return
+	 */
 	public List<Alert> findAlertBetweenTimeRanges(String from, String to){
 	   return dataStore.find(Alert.class).field("timeStamp").greaterThan(from).field("timeStamp").lessThan(to).asList();
 	}

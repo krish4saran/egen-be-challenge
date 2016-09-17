@@ -7,6 +7,10 @@ import org.mongodb.morphia.annotations.Entity;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+/**Rule for setting the correct alert in the metric based on the @condition
+ * @author saranjithkrishnan
+ *
+ */
 @Rule(name = "overWeightRule", description = "Execute the rule when persons weight above 10%")
 @Component("OverWeightAlert")
 @Scope("prototype")

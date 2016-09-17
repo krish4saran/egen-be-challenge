@@ -1,6 +1,6 @@
 package com.egenchallenge.emulator.exception;
 
-/**
+/**Can be used if any input from the sensor is not in the correct format. Not used in the project
  * for HTTP 400 errors
  */
 @SuppressWarnings("serial")

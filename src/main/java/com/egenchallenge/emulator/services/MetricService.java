@@ -29,7 +29,7 @@ public class MetricService {
 	private AlertDAORepository alertDAORepository;
 
 	/**
-	 * There is an issue with getting prototype beans by autowiring - so getting context
+	 * There is an issue with getting prototype beans by autowiring(basically retrieving the same instance) - so getting context
 	 * http://stackoverflow.com/questions/7621920/scopeprototype-bean-scope-not-creating-new-bean
 	 */
 	@Autowired

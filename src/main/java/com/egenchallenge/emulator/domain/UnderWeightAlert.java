@@ -6,6 +6,11 @@ import org.easyrules.annotation.Rule;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+
+/**Rule for setting the correct alert in the metric based on the @condition
+ * @author saranjithkrishnan
+ *
+ */
 @Rule(name = "underWeightRule", description = "Execute the rule when persons weight drops below 10% ")
 @Component("UnderWeightAlert")
 @Scope("prototype")
@@ -14,6 +19,7 @@ public class UnderWeightAlert extends Alert {
 	public UnderWeightAlert() {
 		setAlertType(AlertType.UNDERWEIGHT.toString());
 	}
+	
 	/**This method will check the condition to trigger the event
 	 * 
 	 * If the current weight is less than x% below the base weight
@@ -40,6 +46,9 @@ public class UnderWeightAlert extends Alert {
         return isUnderWeight;
     }
 
+    /**Set this alert on the metrics object
+     * @throws Exception
+     */
     @Action(order = 1)
     public void update() throws Exception {
     	getMetrics().setAlert(this);

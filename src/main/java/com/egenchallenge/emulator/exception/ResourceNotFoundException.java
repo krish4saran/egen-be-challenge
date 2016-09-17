@@ -1,6 +1,6 @@
 package com.egenchallenge.emulator.exception;
 
-/**
+/**Can be used if any resource is not available. Not used in the project
  * For HTTP 404 errros
  */
 @SuppressWarnings("serial")

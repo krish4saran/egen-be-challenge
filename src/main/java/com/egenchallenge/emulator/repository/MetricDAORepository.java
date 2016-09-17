@@ -7,10 +7,12 @@ import org.mongodb.morphia.dao.BasicDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.egenchallenge.emulator.domain.Alert;
 import com.egenchallenge.emulator.domain.Metric;
 
 
-/**
+/**This {@link Repository} is used for CRUD operations related to {@link Metric} document 
+ * against metrics collection
  * @author saranjithkrishnan
  *
  */
@@ -24,15 +26,27 @@ public class MetricDAORepository extends BasicDAO<Metric, String> {
 		super(ds);
 	}
 
+	/**List all {@link Metric} records (documents) available in the metrics collections
+	 * @return
+	 */
 	public List<Metric> findAll() {
 	    return dataStore.find(Metric.class).asList();
 	}
 
-   public List<Metric> findMetricBetweenTimeRanges(String from, String to){
+	
+   /**List all {@link Metric} records (documents) avaialable between two timestamps
+ * @param from
+ * @param to
+ * @return
+ */
+	public List<Metric> findMetricBetweenTimeRanges(String from, String to){
 	   return dataStore.find(Metric.class).field("timeStamp").greaterThan(from).field("timeStamp").lessThan(to).asList();
    }
    
-   public Metric findBaseMetricValue(){
+   /**Find base metric or the first metric document available
+	 * @return
+	 */
+	public Metric findBaseMetricValue(){
 	   return dataStore.find(Metric.class).get();
    }
 }

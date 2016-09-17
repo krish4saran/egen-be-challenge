@@ -23,7 +23,7 @@ public abstract class BaseEntity {
  
     
     /**
-     *Optional requirement 
+     *Optional requirement - Also can use @AutoTimestamp for auto generation of created and updated dates
      */
     @Property("createdDate")
     private Date createdDate;
@@ -33,6 +33,9 @@ public abstract class BaseEntity {
     	this.createdDate =  new Date();
     }
     
+    /**Optionally indexed - since no functionality for fetching one record based on an input
+     * 
+     */
     @Indexed(name = "idx_timestamp", unique = true)
 	@Property("timeStamp")
 	private String timeStamp;
