@@ -1,13 +1,23 @@
 package com.egenchallenge.emulator;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
 /**
  * Hello world!
  *
  */
+
+@SpringBootApplication
+@ComponentScan(basePackages="com.egenchallenge.emulator")
 public class App 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+	private static final Class<App> applicationClass = App.class;
+    
+	public static void main(String[] args) {
+		SpringApplication.run(applicationClass, args);
+	}
+	
+	
 }
