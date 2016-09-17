@@ -10,6 +10,7 @@ FRAMEWORKS
 -	Spring Boot (Spring MVC)
 -	Morphia
 -	Mongo DB
+-	Easy Rule
 -	PostMan (Testing)
 -	Maven
 
