@@ -57,8 +57,8 @@ public class MetricRestController {
 	 */
 	@RequestMapping(value="metric", params={"from","to"}, method=RequestMethod.GET)
 	public List<Metric> readByTimeRange (
-			@RequestParam("from") String from,
-			@RequestParam("to") String to){
+			@RequestParam("from") long from,
+			@RequestParam("to") long to){
 		return metricService.findMetricsBetweenDateRange(from, to);
 	}
 }

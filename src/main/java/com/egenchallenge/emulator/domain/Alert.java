@@ -6,6 +6,8 @@ import org.mongodb.morphia.annotations.Transient;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity("alerts")
 @Component
 @Scope("prototype")
@@ -17,12 +19,14 @@ public  class Alert extends BaseEntity{
 	/**
 	 *@todo - transient fields are getting generated in db - unknown issue
 	 */
+	@JsonIgnore
 	@Transient
 	private Metric metrics;
 
 	/**
 	 *@todo - transient fields are getting generated in db - unknown issue
 	 */
+	@JsonIgnore
 	@Transient
 	private float baseWeight;
 	

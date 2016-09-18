@@ -36,7 +36,7 @@ public class AlertDAORepository extends BasicDAO<Alert, String>{
 	 * @param to
 	 * @return
 	 */
-	public List<Alert> findAlertBetweenTimeRanges(String from, String to){
+	public List<Alert> findAlertBetweenTimeRanges(long from, long to){
 	   return dataStore.find(Alert.class).field("timeStamp").greaterThan(from).field("timeStamp").lessThan(to).asList();
 	}
 }

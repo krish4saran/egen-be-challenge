@@ -23,7 +23,7 @@ public class AlertService {
 		return alertDAORepository.findAll();
 	}
 
-	public List<Alert> findAlertsBetweenDateRange(String from, String to){
+	public List<Alert> findAlertsBetweenDateRange(long from, long to){
 		return alertDAORepository.findAlertBetweenTimeRanges(from, to);
 		
 	}

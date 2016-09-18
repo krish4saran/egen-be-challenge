@@ -8,6 +8,8 @@ import org.mongodb.morphia.annotations.Indexed;
 import org.mongodb.morphia.annotations.PrePersist;
 import org.mongodb.morphia.annotations.Property;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
  
 /**Base entity class having common information
@@ -19,6 +21,7 @@ public abstract class BaseEntity {
  
     @Id
     @Property("id")
+    @JsonIgnore
     protected ObjectId id;
  
     
@@ -26,6 +29,7 @@ public abstract class BaseEntity {
      *Optional requirement - Also can use @AutoTimestamp for auto generation of created and updated dates
      */
     @Property("createdDate")
+    @JsonIgnore
     private Date createdDate;
     
     @PrePersist
@@ -38,14 +42,16 @@ public abstract class BaseEntity {
      */
     @Indexed(name = "idx_timestamp", unique = true)
 	@Property("timeStamp")
-	private String timeStamp;
+	private long timeStamp;
 	
  
-	public String getTimeStamp() {
+	
+
+	public long getTimeStamp() {
 		return timeStamp;
 	}
 
-	public void setTimeStamp(String timeStamp) {
+	public void setTimeStamp(long timeStamp) {
 		this.timeStamp = timeStamp;
 	}
 

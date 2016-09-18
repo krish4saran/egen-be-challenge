@@ -43,8 +43,8 @@ public class AlertRestController {
 	 */
 	@RequestMapping(value="alert" ,params={"from","to"}, method=RequestMethod.GET)
 	public List<Alert> readByTimeRange(
-			@RequestParam("from") String fromDate,
-			@RequestParam("to") String toDate){
+			@RequestParam("from") long fromDate,
+			@RequestParam("to") long toDate){
 		return alertService.findAlertsBetweenDateRange(fromDate, toDate);
 	}
 }

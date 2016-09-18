@@ -75,7 +75,7 @@ public class MetricService {
 	 * @param to
 	 * @return
 	 */
-	public List<Metric> findMetricsBetweenDateRange(String from, String to){
+	public List<Metric> findMetricsBetweenDateRange(long from, long to){
 		return metricDAORepository.findMetricBetweenTimeRanges(from, to);
 		
 	}

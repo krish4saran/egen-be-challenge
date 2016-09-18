@@ -39,7 +39,7 @@ public class MetricDAORepository extends BasicDAO<Metric, String> {
  * @param to
  * @return
  */
-	public List<Metric> findMetricBetweenTimeRanges(String from, String to){
+	public List<Metric> findMetricBetweenTimeRanges(long from, long to){
 	   return dataStore.find(Metric.class).field("timeStamp").greaterThan(from).field("timeStamp").lessThan(to).asList();
    }
    
