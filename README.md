@@ -14,7 +14,102 @@ FRAMEWORKS
 -	PostMan (Testing)
 -	Maven
 
+API's (Metric)
+
+CREATE METRIC
+POST /api/v1/metric HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "timeStamp": "1458062849878", 
+  "value": "100"
+}
+
+READ ALL METRICS
+GET /api/v1/metric HTTP/1.1
+Host: localhost:8080
+
+Response:
+[
+  {
+    "timeStamp": 1458062849878,
+    "value": 100,
+    "alert": null
+  },
+  {
+    "timeStamp": 1458062849879,
+    "value": 102,
+    "alert": null
+  },
+  {
+    "timeStamp": 1458062849880,
+    "value": 120,
+    "alert": {
+      "timeStamp": 1458062849880,
+      "alertType": "OVERWEIGHT"
+    }
+  },
+  {
+    "timeStamp": 1458062849881,
+    "value": 80,
+    "alert": {
+      "timeStamp": 1458062849881,
+      "alertType": "UNDERWEIGHT"
+    }
+  }
+]
+
+READ METRICS BETWEEN TIMESTAMP RANGE
+GET /api/v1/metric?from=1458062849879&amp;to=1458062849881 HTTP/1.1
+Host: localhost:8080
+
+Response:
+[
+  {
+    "timeStamp": 1458062849880,
+    "value": 120,
+    "alert": {
+      "timeStamp": 1458062849880,
+      "alertType": "OVERWEIGHT"
+    }
+  }
+]
+
+API's (Alert)
+
+READ ALERTS
+GET /api/v1/alert HTTP/1.1
+Host: localhost:8080
+
+Response:
+[
+  {
+    "timeStamp": 1458062849879,
+    "alertType": "OVERWEIGHT"
+  },
+  {
+    "timeStamp": 1458062849880,
+    "alertType": "OVERWEIGHT"
+  },
+  {
+    "timeStamp": 1458062849881,
+    "alertType": "UNDERWEIGHT"
+  }
+]
+
+READ ALERTS BETWEEN TWO TIMESTAMP
+GET /api/v1/alert?from=1458062849879&to=1458062849881 HTTP/1.1
+Host: localhost:8080
+
+Response:
+[
+  {
+    "timeStamp": 1458062849880,
+    "alertType": "OVERWEIGHT"
+  }
+]
+
 Contributor
 Saranjith Krishnan (https://www.linkedin.com/in/saranjith-krishnan-80983322)
-saran.poduval@gmail.com
-309 825 5911
+
